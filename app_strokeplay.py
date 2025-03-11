@@ -5,6 +5,13 @@
 import streamlit as st
 import pandas as pd
 
+# ----------------------------------------------------------
+# > Open CLI
+# > cd C:\Users\PC\Desktop\PinoyGolf
+# > .venv\Scripts\activate
+# > streamlit run app_strokeplay.py
+# ----------------------------------------------------------
+
 
 st.set_page_config(
     page_title="PGT Scorecard",
@@ -53,7 +60,7 @@ def main():
         st.subheader(f'**_{selected_course} Golf Course_**')
 
     try:
-        df_all = pd.read_excel('assets\GolfCoursePar.xlsx')
+        df_all = pd.read_excel('assets/GolfCoursePar.xlsx')
         course_mapping = {
         'Knights Play': [0, 1],
         'Brevofield': [0, 2],
@@ -163,6 +170,13 @@ def main():
         with col2:
             st.markdown(f"**{name}**  \n`{score} points`")
             st.progress(min(score / 72, 1))  # Assuming par 72 course
+
+    st.download_button(
+        label="Download Scorecard as CSV",
+        data=scorecard_df.to_csv(index=False),
+        file_name="golf_scorecard.csv",
+        mime="text/csv"
+    )
 
 if __name__ == '__main__':
     main()
