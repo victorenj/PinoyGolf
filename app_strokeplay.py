@@ -2,13 +2,6 @@
 ## Last Update: 3/10/25
 ## Purpose: For PGT golfers use
 
-# ----------------------------------------------------------
-# > Open CLI
-# > cd C:\Users\PC\Desktop\PinoyGolf
-# > .venv\Scripts\activate
-# > streamlit run app_strokeplay.py
-# ----------------------------------------------------------
-
 import streamlit as st
 import pandas as pd
 
